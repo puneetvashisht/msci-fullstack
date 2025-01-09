@@ -23,10 +23,10 @@ public class Car extends Vehicle{
         System.out.println("Car start...");
     }
 
-    // @Override
-    // public String toString() {
-    //     return "Car [model=" + model + ", maxSpeed=" + maxSpeed + ", color=" + color + "]";
-    // }
+    @Override
+    public String toString() {
+        return "Car [model=" + model + ", maxSpeed=" + maxSpeed + ", color=" + color + "]";
+    }
 
     
 }

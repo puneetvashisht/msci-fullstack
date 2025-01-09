@@ -13,10 +13,10 @@ public class Vehicle extends Object{
     }
 
 
-    // @Override
-    // public String toString() {
-    //     return "Vehicle [maxSpeed=" + maxSpeed + "]";
-    // }
+    @Override
+    public String toString() {
+        return "Vehicle [maxSpeed=" + maxSpeed + "]";
+    }
 
 
     public void start(){
