@@ -4,6 +4,10 @@ public class Plane extends Vehicle{
 
     int maxAltitude;
   
+    public Plane(int maxAltitude){
+        this.maxAltitude = maxAltitude;
+        // this(100, maxAltitude);
+    }
  
     public Plane(int maxSpeed, int maxAltitude) {
         super(maxSpeed);
