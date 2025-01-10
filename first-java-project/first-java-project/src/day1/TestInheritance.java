@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class TestInheritance {
 
     public static Vehicle brakeDown(Vehicle v){
+        v.maxSpeed--;
         return v;
     }
 
@@ -39,6 +40,8 @@ public class TestInheritance {
         vehicles.add(c);
         vehicles.add(p);
         for(Vehicle vehicle : vehicles){
+            System.out.println(vehicle);
+            brakeDown(vehicle);
             System.out.println(vehicle);
         }
 

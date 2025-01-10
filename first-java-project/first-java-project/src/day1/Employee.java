@@ -26,7 +26,6 @@ public class Employee {
         // this.id = id;
         // this.name = name;
         this(id, name);
-        
         this.salary = salary;
         
     }
