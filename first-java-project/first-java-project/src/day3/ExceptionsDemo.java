@@ -2,10 +2,10 @@ package day3;
 
 public class ExceptionsDemo {
 
-    public static void m2(int x) {
+    public static void m2(int x) throws InputInvalidException {
         if (x == 0) {
             // explicit throw an exception
-            throw new RuntimeException("X isn;t suppied with right value!");
+            throw new InputInvalidException("X isn;t suppied with right value!");
         }
         String str = "";
         int z = 34;
@@ -14,7 +14,7 @@ public class ExceptionsDemo {
         System.out.println(result);
     }
 
-    public static void m1() {
+    public static void m1() throws Exception {
 
         m2(0);
 
@@ -23,6 +23,19 @@ public class ExceptionsDemo {
     }
 
     public static void main(String[] args) {
+
+        try {
+            m1();
+            
+        } 
+        catch(InputInvalidException e){
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+           
+            e.printStackTrace();
+        }
+
         try {
             m1();
         }
