@@ -1,6 +1,6 @@
 package day4;
 
-class Book{		
+class Book implements Comparable<Book>{		
     private long isbn;
     private String title;	
     private double rating;
@@ -27,7 +27,7 @@ class Book{
         return rating;
     }
     
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
     
@@ -61,6 +61,11 @@ class Book{
     public String toString() {
         return "Book [isbn=" + isbn + ", title=" + title + ", rating=" + rating + ", price=" + price + ", source="
                 + source + "]";
+    }
+
+    @Override
+    public int compareTo(Book o) {
+       return this.title.compareTo(o.title);
     }
 
     
