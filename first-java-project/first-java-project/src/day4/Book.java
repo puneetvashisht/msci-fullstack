@@ -23,7 +23,7 @@ class Book implements Comparable<Book>{
         return title;
     }
     
-    public double getRating() {
+    public Double getRating() {
         return rating;
     }
     
