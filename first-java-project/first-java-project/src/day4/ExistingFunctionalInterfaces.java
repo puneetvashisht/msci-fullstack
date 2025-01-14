@@ -1,6 +1,8 @@
 package day4;
 
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class ExistingFunctionalInterfaces {
@@ -14,7 +16,12 @@ public class ExistingFunctionalInterfaces {
         Integer length = biFunction.apply("a", "xyz");
         System.out.println("length: " + length);
 
+        Consumer<String> consumer = (x) -> System.out.println(x);
+        consumer.accept("xuz");
         
+        Function<String, Integer> function = (a) -> a.length();
+        Integer stringLength = function.apply("abcdef");
+        System.out.println(stringLength);
 
 
     }

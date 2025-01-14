@@ -1,5 +1,7 @@
 package day4;
 
+import java.util.function.Consumer;
+
 @FunctionalInterface
 interface  Greeting {
     void sayHello(String message);
@@ -21,24 +23,24 @@ class FrenchGreeting implements Greeting{
 
 public class FunctionalDemo {
 
-    public static void greet(Greeting greeting){
+    public static void greet(Consumer<String> greeting){
         // supports greeting in different languages
-        greeting.sayHello("Priya");
+        greeting.accept("Priya");
     }
     
 
     public static void main(String[] args) {
         // using subclasses
-        greet(new JapaneseGreeting());
-        greet(new FrenchGreeting());
+        // greet(new JapaneseGreeting());
+        // greet(new FrenchGreeting());
 
-        // use anonymous class
-        greet(new Greeting() {
-             @Override
-            public void sayHello(String message) {
-                System.out.println("Namaste! " + message);
-            }    
-        });
+        // // use anonymous class
+        // greet(new Greeting() {
+        //      @Override
+        //     public void sayHello(String message) {
+        //         System.out.println("Namaste! " + message);
+        //     }    
+        // });
 
         // Greeting marathiGreeting = (s) -> System.out.println("Namaskar! " + s);
         // greet(marathiGreeting);
