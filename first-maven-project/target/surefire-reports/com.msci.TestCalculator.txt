@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.msci.TestCalculator
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec <<< FAILURE!
+com.msci.TestCalculator.testAdd()  Time elapsed: 0.006 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.msci.Calculator.add(int, int)" because "this.calc" is null
+	at com.msci.TestCalculator.testAdd(TestCalculator.java:31)
+
+com.msci.TestCalculator.testMultiplication()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.msci.Calculator.multiply(int, int)" because "this.calc" is null
+	at com.msci.TestCalculator.testMultiplication(TestCalculator.java:48)
+
+com.msci.TestCalculator.testAddWithNegativeValue()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.msci.Calculator.add(int, int)" because "this.calc" is null
+	at com.msci.TestCalculator.testAddWithNegativeValue(TestCalculator.java:40)
+

@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.msci.TestCourseService
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec <<< FAILURE!
+com.msci.TestCourseService.testFindCourseByTitle()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.msci.CourseService.findCourseByTitle(String)" because "this.courseService" is null
+	at com.msci.TestCourseService.testFindCourseByTitle(TestCourseService.java:20)
+
+com.msci.TestCourseService.testFindCourseByTitleNotFound()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.msci.CourseService.findCourseByTitle(String)" because "this.courseService" is null
+	at com.msci.TestCourseService.testFindCourseByTitleNotFound(TestCourseService.java:26)
+
