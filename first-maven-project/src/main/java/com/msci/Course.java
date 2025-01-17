@@ -1,8 +1,8 @@
 package com.msci;
 
-import lombok.Data;
+// import lombok.Data;
 
-@Data
+// @Data
 public class Course {
     int id;
     String title;

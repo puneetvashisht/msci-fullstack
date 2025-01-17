@@ -21,18 +21,15 @@ public class CourseController {
 
     @Autowired
     CourseRepository courseRepository;
+
+    @Autowired
+    CourseService courseService;
     
 
     // get course by id
     @RequestMapping(path="/courses/{id}", method=RequestMethod.GET)
     public Course getCourseById(@PathVariable int id){
-        Optional<Course> courseFound = courseRepository.findById(id);
-        if (courseFound.isPresent()) {
-            return courseFound.get();
-        } else {
-            throw new CourseNotFoundException("Course not found");
-        }
-        // return courses.stream().filter(c -> c.getId() == id).findFirst().orElseThrow(() -> new CourseNotFoundException("Course not found"));
+        return courseService.getCourseById(id);
     }
 
     @RequestMapping(path="/courses", method=RequestMethod.GET)

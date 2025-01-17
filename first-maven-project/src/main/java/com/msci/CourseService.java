@@ -5,15 +5,18 @@ import java.util.List;
 
 public class CourseService {
 
-    ArrayList<Course> courses;
+    List<Course> courses;
     {
         courses = new ArrayList<>();
-        // add course objects to list
         courses.add(new Course(23, "Angular", 34343.34));
-        courses.add(new Course(2, "React", 44434));
-        courses.add(new Course(2, "React", 44434));
-        courses.add(new Course(2, "React", 44434));
+        
+      
     }
 
+    public boolean findCourseByTitle(String title){
+        if(title == null)  throw new CourseNotFoundException();
+        boolean result =  courses.stream().anyMatch((c) -> c.title.equals(title));
+        return result;
+    }
 }
 

@@ -1,6 +1,7 @@
 package com.msci;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -25,6 +26,13 @@ public class TestCourseService {
         String title = "NodeJS";
         boolean result = courseService.findCourseByTitle(title);
         assertFalse(result);
+    }
+
+    // test for exception
+    @Test
+    public void testFindCourseByTitleException(){
+        String title = null;
+        assertThrows(CourseNotFoundException.class, () -> courseService.findCourseByTitle(title));
     }
 
 }

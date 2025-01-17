@@ -7,12 +7,15 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class ProcessFile {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader("MOCK_DATA.csv"));
@@ -55,22 +58,35 @@ public class ProcessFile {
             LocalTime startTime = LocalTime.now();
             System.out.println(startTime);
 
-            // List<Thread> threads = new ArrayList<>();
+            List<Future> futures = new ArrayList<>();
 
             ExecutorService executorService = Executors.newFixedThreadPool(100);
 
-
+            double totalSalaries = 0.0;
 
             for (Employee e : employees) {
-                Runnable r = new IncrementSalaryTask(e);
-                executorService.submit(r);
+                // Runnable r = new IncrementSalaryTask(e);
+                Callable<Double> callable = new IncrementSalaryCallable(e);
+                Future<Double> result =  executorService.submit(callable);
+                futures.add(result);
+
+                
+            }
+
+
+            for(Future<Double> f : futures) {
+                Double incrementedSalary = f.get();
+                System.out.println("Incremented salary: " + incrementedSalary);
                 // Thread t = new Thread(r);
                 // t.start();
                 // threads.add(t);
                 // e.incrementSalary();
 
+                totalSalaries += incrementedSalary;
             }
 
+
+            System.out.println("Total salary: " + totalSalaries);
             // for (Thread t : threads) {
             //     t.join();
             // }

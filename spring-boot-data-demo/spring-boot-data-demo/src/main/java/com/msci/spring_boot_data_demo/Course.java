@@ -10,6 +10,11 @@ import lombok.Data;
 @Data
 @Entity
 public class Course {
+    public Course(int i, String string, double j) {
+        this.id = i;
+        this.title = string;
+        this.price = j;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
