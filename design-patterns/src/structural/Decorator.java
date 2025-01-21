@@ -30,6 +30,7 @@ class SportsCar extends CarDecorator {
     public void assemble() {
         super.assemble();
         System.out.print(" + Adding features of Sports Car");
+        // add specifics
     }
 }
 
