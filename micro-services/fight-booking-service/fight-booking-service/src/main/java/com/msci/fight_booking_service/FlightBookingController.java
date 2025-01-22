@@ -3,6 +3,7 @@ package com.msci.fight_booking_service;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,9 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("/api/v1")
 public class FlightBookingController {
+
+    @Autowired
+    FlightSearchProxy flightSearchProxy;
 
     @PostMapping("/booking")
     public String bookAFlight(@RequestBody Flight flight){
@@ -31,6 +35,20 @@ public class FlightBookingController {
         System.out.println(flightResponse);
         double totalPrice =  flight.getQuantity() * flightResponse.getPrice();
 
+
+        return "Booked for " + totalPrice;
+
+
+    }
+
+
+    @PostMapping("/withfeign")
+    public String bookAFlightWithFeign(@RequestBody Flight flight){
+        System.out.println("Flight to book " + flight);
+
+        // Declarative REST API Call 
+        Flight flightResponse = flightSearchProxy.findFlight(flight.getSource(), flight.getDestination());  
+        double totalPrice =  flight.getQuantity() * flightResponse.getPrice();
 
         return "Booked for " + totalPrice;
 

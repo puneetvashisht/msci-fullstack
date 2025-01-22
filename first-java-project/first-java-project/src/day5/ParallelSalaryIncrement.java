@@ -1,9 +1,11 @@
+
 package day5;
 
 import java.time.Duration;
 import java.time.LocalTime;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ParallelSalaryIncrement {
@@ -15,6 +17,13 @@ public class ParallelSalaryIncrement {
         Employee e3 = new Employee(2, "Raj", 23433);
         Employee e5 = new Employee(2, "Raj", 23433);
         Employee e4 = new Employee(12, "Rajul", 43433);
+
+        Iterator<Employee> iterator = employees.iterator();
+
+        while(iterator.hasNext()){
+            Employee employee = iterator.next();
+            employee.incrementSalary();
+        }
 
         employees.add(e1);
         employees.add(e2);
