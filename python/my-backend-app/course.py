@@ -5,3 +5,5 @@ class Course(BaseModel):
     title: str
     instructor: str
     students: int
+
+
