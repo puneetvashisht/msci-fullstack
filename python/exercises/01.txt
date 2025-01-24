@@ -1,0 +1,13 @@
+Exercise: Discounted Shopping Cart
+Create a class ShoppingCart that allows adding items and applying discounts using lambda functions.
+
+Requirements:
+The ShoppingCart class should have:
+    A method to add an item with its price.
+    A method to calculate the total price of the cart.
+    A method to apply a discount, which accepts a lambda function.
+    
+Use lambdas for:
+
+Calculating a discount (e.g., 10% off, fixed amount discount, or buy-one-get-one-free).
+Filtering items based on a condition (e.g., items above a certain price).
